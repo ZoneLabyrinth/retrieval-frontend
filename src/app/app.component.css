@@ -1,0 +1,25 @@
+#header-title{
+  height: 53px;
+  color:white;
+  /*padding-left:10px;*/
+  font-family: "Hiragino Sans GB W3";
+  background-color: #485d8c;
+  border-bottom: 1px solid #ddd;
+}
+#header-title .titleLogo{
+  /*float: left;*/
+  position: absolute;
+  margin-left: 15px;
+  width: 140px;
+  height: 53px;
+  background-image: url("../assets/image/solr.png");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#header-title .title{
+  line-height: 53px;
+  text-align: center;
+}
+

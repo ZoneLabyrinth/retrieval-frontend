@@ -1,0 +1,157 @@
+.nav {
+  width: 1000px;
+  margin: auto;
+  font-size: 14px;
+}
+
+.nav .nav-input {
+  width: 930px;
+  margin: 30px auto 0px;
+}
+
+.nav-input>ul {
+  width: 720px;
+  margin: auto;
+}
+
+.nav-input >ul li {
+  cursor: pointer;
+  float: left;
+  margin-left:5px;
+  width: 130px;
+  height: 40px;
+  border: 1px solid #0070c0;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  background: #e1f7ff;
+  border-bottom: 0px;
+  font-size: 20px;
+
+}
+
+.nav .searching-container {
+  width: 720px;
+  margin: auto;
+}
+
+.nav .searching-container input {
+  float: left;
+  /*display: inline-block;*/
+  width: 560px;
+  height: 36px;
+  font-size: 26px;
+
+}
+.nav .searching-container span{
+  float: left;
+  /*display: inline-block;*/
+  width: 150px;
+  height: 40px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  /*background: #485d8c;*/
+
+  color: #fff;
+  background: rgb(255,147,48);
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  line-height: 38px;
+}
+.nav .resource-container{
+  clear: both;
+}
+.nav .resource-container .title{
+  line-height: 30px;
+  text-align: center;
+  margin-top: 10px;
+  float: left;
+  width: 50px;
+  height: 30px;
+  background: #deebf7;
+  font-size: 16px;
+}
+.nav .resource-container .left{
+  float: left;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.nav .checkbox-title {
+  font-size: 14px;
+  line-height: 30px;
+}
+.nav .checkbox-title input{
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.nav .checkbox-detail{
+  width: 200px;
+  word-wrap: break-word;
+}
+
+.nav .checkbox-detail li{
+  color: #7f7f7f;
+  line-height: 18px;
+  display: inline-block;
+}
+
+.searching-content{
+  width: 1000px;
+  overflow: hidden;
+  margin:30px auto;
+  font-size: 14px;
+  clear: both;
+  background: #fff;
+}
+.content-box{
+  width: 998px;
+  height: 90px;
+  border:1px solid #ccc;
+
+}
+
+.content-box>p{
+  padding:10px;
+  color: blue;
+}
+.content-box .content-info{
+  padding: 10px;
+}
+.content-box .content-info p{
+  display: inline-block;
+  width: 800px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+
+}
+
+.content-box .content-info a{
+  float: right;
+  color: blue;
+  margin-right: 30px;
+}
+.search-result{
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  width:195px;
+  height: 16px;
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  color: #eee;
+  background-color: #607D8B;
+}
+
+#search-box{
+  width: 200px;
+  height: 20px;
+}

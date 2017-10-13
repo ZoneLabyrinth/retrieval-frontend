@@ -1,0 +1,41 @@
+<div class="nav">
+  <div class="nav-input">
+    <ul class="nav-title">
+      <li *ngFor="let type of types">
+        {{type.name}}
+      </li>
+    </ul>
+    <div class="searching-container">
+      <input><span>全检索</span>
+    </div>
+    <div class="resource-container">
+      <div class="title">来源</div>
+      <div class="left" *ngFor="let item of sources">
+        <label class="checkbox-title">
+          <input type="checkbox">{{item.title}}
+        </label>
+        <ul class="checkbox-detail">
+          <li *ngFor="let name of item.content">{{name.name}} &nbsp;</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="searching-content">
+<hr>
+  <div class="content-box">
+    <p>****客户1</p>
+    <div class="content-info">
+      <p>客户联系方式:1234657678;客户邮箱：12345678@qq.com客户联系方式:1234657678;客户邮箱：12345678@qq.com客户联系方式:1234657678;客户邮箱：12345678@qq.com</p><a>更多...</a>
+    </div>
+  </div>
+  <input #searchBox id="search-box" (keyup)="getSentiment(searchBox.value)" />
+  <div>
+    <div *ngFor="let hero of sentiments | async"
+         class="search-result" >
+      {{hero.title}}
+    </div>
+  </div>
+</div>
+
+

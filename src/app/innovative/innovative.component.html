@@ -1,0 +1,42 @@
+<div id="container">
+  <div class="img_box">
+    <div class="img">
+      <img src="assets/image/solr.png">
+    </div>
+    <form class="search_input" (ngSubmit)="search(searchBox.value)">
+      <div class="change">
+        <div class="pbo"(click)="gotoPbo()">
+          资讯
+        </div>
+        <div class="innovative">
+          知识
+        </div>
+      </div>
+      <input id="search" #searchBox  (keyup)="searching(searchBox.value)" (keyup.enter)="gotoDetail(searchBox.value)" [(ngModel)]="selectedTerm" name="value"  required>
+      <button type="submit" class="button">
+        <i></i>搜索
+      </button>
+      <div class="search-result-box">
+        <div *ngFor="let mapping of InnovativeMapping | async"
+             (click)="gotoDetail(mapping.description)" class="search-result" >
+          {{mapping.description}}
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+<div id="result">
+  <div class='title' *ngFor="let datum  of data">
+    <a  target='_blank'>
+      <span [innerHTML]="datum.fileName"></span>
+    </a>
+    <div class="content" [innerHTML]="datum.content"></div>
+  </div>
+</div>
+
+
+<div class="page">
+  <ngb-pagination *ngIf="TotalCount" [collectionSize]="TotalCount" [(page)]="page" [maxSize]="5" [rotate]="true"
+                  [boundaryLinks]="true" (pageChange)="pageChanged($event)"></ngb-pagination>
+</div>
