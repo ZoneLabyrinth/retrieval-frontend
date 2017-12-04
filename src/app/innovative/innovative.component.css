@@ -7,14 +7,15 @@ a:hover{
 }
 
 #container{
-  height: 160px;
-  padding-top: 20px;
+  /*height: 160px;*/
+  /*padding-top: 20px;*/
   background: #fbfbfb;
 }
 
 .img_box .img{
-  margin-left: 100px;
-  float: left;
+  height: 80px;
+  width: 100%;
+  text-align: center;
 }
 
 .img img{
@@ -24,9 +25,13 @@ a:hover{
 
 .img_box form{
   padding-top: 30px;
-  float: left;
-  margin-left: 200px;
+  /*float: left;*/
+  /*margin-left: 200px;*/
   position: relative;
+  /*width: 600px;*/
+  width: 687px;
+  margin: auto;
+  padding-bottom: 30px;
 }
 .img_box form input{
   float: left;
@@ -37,8 +42,9 @@ a:hover{
   padding: 4px;
   margin-bottom: 4px;
   border-width: 2px 0 2px 2px;
-  border-color: #a6cbff;
+  border-color: #7d97b9;
   border-style: solid;
+  border-left: none;
   outline: 0;
   font-size: 14px;
   font-family: "microsoft yahei"
@@ -48,9 +54,25 @@ a:hover{
   width: 80px;
   height: 36px;
   color: white;
-  background: #3388ff;
+  background: #3f6699;
   outline:none;
   border: none;
+}
+.img_box form select{
+  width: 70px;
+  height: 36px;
+  line-height: 24px;
+  color: #666;
+  padding: 4px;
+  margin-bottom: 4px;
+  border-width: 2px 0 2px 2px;
+  border-color: #7d97b9;
+  border-style: solid;
+  border-right: 0;
+  outline: 0;
+  font-size: 14px;
+  font-family: "microsoft yahei";
+  float: left;
 }
 
 #result{
@@ -58,11 +80,12 @@ a:hover{
   width: 100%;
   font-size: 12px;
   background: #fbfbfb;
+  margin-top: -10px;
 }
 #result .title{
   margin: 10px auto;
   /*cursor: pointer;*/
-  border: 1px solid #eee;
+  border-bottom: 1px solid #ccc;
   height: 120px;
   line-height: 30px;
   width: 1055px;
@@ -78,7 +101,7 @@ a:hover{
   text-align: left;
   padding-left: 20px;
   font-size: 18px;
-  color: #3385ff;
+  color: #3f6699;
 }
 #result .title a:hover{
   color: red;
@@ -95,7 +118,7 @@ a:hover{
   color: black;
 }
 .innovative{
-  border: 1px solid #0070c0;
+  border: 1px solid #7d97b9;
   border-radius: 5px 5px 0 0;
   background: #e1f7ff;
   border-bottom: 0px;
@@ -121,7 +144,8 @@ a:hover{
 .search-result-box{
   position: absolute;
   z-index: 99;
-  top:106px;
+  top:66px;
+  left:66px;
 }
 
 .search-result{

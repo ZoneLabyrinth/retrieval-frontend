@@ -4,6 +4,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {InnovativeMapping} from "../models/model";
 import {Subject} from "rxjs/Subject";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-innovative',
@@ -25,6 +26,14 @@ export class InnovativeComponent implements OnInit {
 
   private searchTerms = new Subject<string>();
   page = 1;
+  states = [
+    {name: '资讯', value: 'public-opinion'},
+    {name: '知识', value: 'innovative'},
+  ];
+
+  form = new FormGroup({
+    state: new FormControl(this.states[1])
+  });
 
   constructor(private searchingService: SearchingService,
               private router: Router,
@@ -46,7 +55,8 @@ export class InnovativeComponent implements OnInit {
     this.activeRouter.queryParams.subscribe(params => {
       this.term = this.selectedTerm = params.term;
       this.page = params.page;
-    })
+    });
+
 
 
     if (this.term && this.page) {
@@ -62,6 +72,7 @@ export class InnovativeComponent implements OnInit {
       .subscribe(data => {
         this.data = data.json();
         this.TotalCount = parseInt(data.headers.get("X-Total-Count"));
+        this.TotalCount = parseInt(this.TotalCount) < 1000 ? parseInt(this.TotalCount) : 1000;
         this.pattern = new RegExp(this.term);
         for (let contents of this.data) {
           let info = this.pattern.exec(contents.content);

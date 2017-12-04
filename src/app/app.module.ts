@@ -1,17 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {RoutingModule} from "./routing/routing.module";
 // import {Ng2BootstrapModule} from "ng2-bootstrap";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
-import { AppComponent } from './app.component';
-import { SearchingComponent } from './searching/searching.component';
+import {AppComponent} from './app.component';
+import {SearchingComponent} from './searching/searching.component';
 import {HttpModule} from "@angular/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SearchingService} from "./services/searching.service";
-import { PublicOpionComponent } from './public-opion/public-opion.component';
-import { InnovativeComponent } from './innovative/innovative.component';
+import {PublicOpionComponent} from './public-opion/public-opion.component';
+import {InnovativeComponent} from './innovative/innovative.component';
+
 
 @NgModule({
   declarations: [
@@ -25,9 +26,11 @@ import { InnovativeComponent } from './innovative/innovative.component';
     RoutingModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot()
   ],
   providers: [SearchingService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

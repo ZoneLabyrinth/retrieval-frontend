@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-public-opion',
@@ -22,6 +23,14 @@ export class PublicOpionComponent implements OnInit {
 
   page = 1;
   Mapping: Observable<Mapping[]>;
+  states = [
+    {name: '资讯', value: 'public-opinion'},
+    {name: '知识', value: 'innovative'},
+  ];
+
+  form = new FormGroup({
+    state: new FormControl(this.states[0])
+  });
 
   private searchTerms = new Subject<string>();
 
@@ -47,7 +56,10 @@ export class PublicOpionComponent implements OnInit {
         console.log(error);
         return Observable.of<Mapping[]>([]);
       });
-
+    console.log(this.form.value.state.value)
+    if (this.form.value.state.value === 'public-opinion') {
+      console.log(">>")
+    }
 
     // 获取路径参数，通过路径匹配搜索结果
     this.activeRoute.queryParams.subscribe(params => {
@@ -62,7 +74,7 @@ export class PublicOpionComponent implements OnInit {
       this.searchingService.getSentiment({page: this.page, term: this.term}).subscribe(data => {
         this.data = data.json();
         this.TotalCount = data.headers.get('x-total-count');
-        this.TotalCount = parseInt(this.TotalCount);
+        this.TotalCount = parseInt(this.TotalCount) < 1000 ? parseInt(this.TotalCount) : 1000;
         console.log(this.data);
       });
     } else {
@@ -74,7 +86,7 @@ export class PublicOpionComponent implements OnInit {
       this.data = data.json();
       this.TotalCount = data.headers.get('x-total-count');
       console.log(this.TotalCount);
-      this.TotalCount = parseInt(this.TotalCount);
+      this.TotalCount = parseInt(this.TotalCount) < 1000 ? parseInt(this.TotalCount) : 1000;
       this.pattern = new RegExp(this.term);
       for (let contents of this.data) {
         let info = this.pattern.exec(contents.content);
@@ -142,7 +154,12 @@ export class PublicOpionComponent implements OnInit {
 
   }
 
+  // changeItem(): void {
+  //   this.router.navigate(['innovative']);
+  // }
+
   gotoInnovative(): void {
+    console.log(">>")
     this.router.navigate(['innovative']);
   }
 

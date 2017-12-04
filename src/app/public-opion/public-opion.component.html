@@ -1,32 +1,28 @@
-<!--<div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">-->
-  <!--<button class="btn btn-outline-primary" id="dropdownManual" ngbDropdownToggle>Toggle dropdown</button>-->
-  <!--<div ngbDropdownMenu aria-labelledby="dropdownManual">-->
-    <!--<button class="dropdown-item">Action - 1</button>-->
-    <!--<button class="dropdown-item">Another Action</button>-->
-    <!--<button class="dropdown-item">Something else is here</button>-->
-  <!--</div>-->
-
-  <!--<button class="btn btn-outline-success" (click)="$event.stopPropagation(); myDrop.open();">Open from outside</button>-->
-  <!--<button class="btn btn-outline-danger" (click)="$event.stopPropagation(); myDrop.close();">Close from outside</button>-->
-<!--</div>-->
 <div id="container">
   <div class="img_box">
     <div class="img">
       <img src="assets/image/solr.png">
     </div>
-    <form class="search_input" (ngSubmit)="search(searchBox.value)">
-      <div class="change">
-        <div class="pbo">
-          资讯
-        </div>
-        <div (click)="gotoInnovative()" class="innovative">
-          知识
-        </div>
+    <form class="search_input" [formGroup]="form">
+      <!--<div class="change">-->
+        <!--<div class="pbo">-->
+          <!--资讯-->
+        <!--</div>-->
+        <!--<div (click)="gotoInnovative()" class="innovative">-->
+          <!--知识-->
+        <!--</div>-->
+      <!--</div>-->
+      <div class="input-group">
+        <select formControlName="state" (ngModelChange)="gotoInnovative()">
+          <option *ngFor="let state of states" [ngValue]="state">
+            {{ state.name }}
+          </option>
+        </select>
+        <input id="search" #searchBox  (keyup)="searching(searchBox.value)" (keyup.enter)="gotoDetail(searchBox.value)" [(ngModel)]="selectedTerm" name="value" [ngModelOptions]="{standalone: true}"  required>
+        <button type="submit" class="button">
+          <i></i>搜索
+        </button>
       </div>
-      <input id="search" #searchBox  (keyup)="searching(searchBox.value)" (keyup.enter)="gotoDetail(searchBox.value)" [(ngModel)]="selectedTerm" name="value"  required>
-      <button type="submit" class="button">
-        <i></i>搜索
-      </button>
       <div class="search-result-box">
         <div *ngFor="let mapping of Mapping | async"
             (click)="gotoDetail(mapping.keywords)" class="search-result" >
